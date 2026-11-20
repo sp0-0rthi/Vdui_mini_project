@@ -15,7 +15,7 @@ table Predictions
 	measure 'Audit case match' = IF(MAX(Predictions[oof_p_decline]) >= SELECTEDVALUE(AuditThreshold[Value], 0.7), 1, 0)
 		formatString: 0
 
-	measure 'Audit summary' = (CALCULATE(COUNTROWS(Predictions), Predictions[oof_p_decline] >= SELECTEDVALUE(AuditThreshold[Value], 0.7)) + 0) & " of " & CALCULATE(COUNTROWS(Predictions), ALL(Predictions), NOT(ISBLANK(Predictions[oof_p_decline]))) & " cases at threshold " & FORMAT(SELECTEDVALUE(AuditThreshold[Value], 0.7), "0.00")
+	measure 'Audit summary' = (CALCULATE(COUNTROWS(Predictions), Predictions[oof_p_decline] >= SELECTEDVALUE(AuditThreshold[Value], 0.7)) + 0) & " cases at threshold " & FORMAT(SELECTEDVALUE(AuditThreshold[Value], 0.7), "0.00")
 
 	measure 'Flagged cases' = CALCULATE(COUNTROWS(Predictions), Predictions[oof_p_decline] >= SELECTEDVALUE(AuditThreshold[Value], 0.7))
 		formatString: 0
