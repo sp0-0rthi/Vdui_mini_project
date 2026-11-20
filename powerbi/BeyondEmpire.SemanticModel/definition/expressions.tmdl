@@ -1,1 +1,5 @@
 expression DataRoot = "C:\Users\Spoorthi AN\Vdui_mini_project\dashboard" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 0c84a062-6556-4b9b-a721-cbf77f1fe4ce
+
+	annotation PBI_ResultType = Text
+

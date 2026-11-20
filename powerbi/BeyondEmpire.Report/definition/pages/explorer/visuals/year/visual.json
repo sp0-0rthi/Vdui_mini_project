@@ -5,13 +5,12 @@
     "x": 368,
     "y": 132,
     "z": 0,
-    "width": 260,
     "height": 150,
+    "width": 260,
     "tabOrder": 3
   },
   "visual": {
     "visualType": "slicer",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -27,7 +26,8 @@
                   "Property": "time_t"
                 }
               },
-              "queryRef": "Predictions.time_t"
+              "queryRef": "Predictions.time_t",
+              "active": true
             }
           ]
         }
@@ -54,6 +54,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

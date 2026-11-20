@@ -1,15 +1,18 @@
 table AuditThreshold
+	lineageTag: 26f02001-a597-45d7-bbcc-4bd627fa5e18
 
 	column Value
 		dataType: double
+		lineageTag: b1811aa1-b92c-44ef-85ab-9e7864f4389b
 		summarizeBy: none
 		sourceColumn: Value
 
 	partition AuditThreshold = m
 		mode: import
 		source =
-			let
-			    Source = #table({"Value"}, {{0.3}, {0.5}, {0.7}, {0.75}, {0.8}, {0.85}, {0.9}}),
-			    Typed = Table.TransformColumnTypes(Source, {{"Value", type number}})
-			in
-			    Typed
+				let
+				    Source = #table({"Value"}, {{0.3}, {0.5}, {0.7}, {0.75}, {0.8}, {0.85}, {0.9}}),
+				    Typed = Table.TransformColumnTypes(Source, {{"Value", type number}})
+				in
+				    Typed
+

@@ -86,7 +86,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Held-out observations  \u2022  filtered by selection'"
+                  "Value": "'Held-out observations  •  filtered by selection'"
                 }
               }
             }

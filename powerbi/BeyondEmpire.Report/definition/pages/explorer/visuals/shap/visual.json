@@ -5,13 +5,12 @@
     "x": 32,
     "y": 316,
     "z": 0,
-    "width": 720,
     "height": 444,
+    "width": 720,
     "tabOrder": 5
   },
   "visual": {
     "visualType": "barChart",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Category": {
@@ -27,7 +26,8 @@
                   "Property": "feature"
                 }
               },
-              "queryRef": "Explanations.feature"
+              "queryRef": "Explanations.feature",
+              "active": true
             }
           ]
         },
@@ -64,13 +64,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Why the model gave this score  \u2022  SHAP contribution (log-odds)'"
+                  "Value": "'Why the model gave this score  •  SHAP contribution (log-odds)'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

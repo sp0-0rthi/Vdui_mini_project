@@ -2,9 +2,15 @@ model Model
 	culture: en-US
 	defaultPowerBIDataSourceVersion: powerBI_V3
 	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["AuditThreshold","Predictions","Explanations","DataRoot"]
+
+annotation PBI_ProTooling = ["DevMode"]
 
 ref table AuditThreshold
 ref table Predictions
 ref table Explanations
 
-ref expression DataRoot

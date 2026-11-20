@@ -47,7 +47,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Selected held-out score  \u2022  uncalibrated'"
+                  "Value": "'Selected held-out score  •  uncalibrated'"
                 }
               }
             }

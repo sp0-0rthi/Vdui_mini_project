@@ -5,13 +5,12 @@
     "x": 32,
     "y": 132,
     "z": 0,
-    "width": 320,
     "height": 150,
+    "width": 320,
     "tabOrder": 2
   },
   "visual": {
     "visualType": "slicer",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
@@ -27,7 +26,8 @@
                   "Property": "polity"
                 }
               },
-              "queryRef": "Predictions.polity"
+              "queryRef": "Predictions.polity",
+              "active": true
             }
           ]
         }
@@ -54,6 +54,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

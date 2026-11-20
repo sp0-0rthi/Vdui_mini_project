@@ -1,183 +1,221 @@
 table Predictions
+	lineageTag: a077fae1-3c45-4c91-8b4e-e7c2ee025641
 
 	measure 'Selected score' = SELECTEDVALUE(Predictions[model_score])
 		formatString: 0.000
+		lineageTag: cbd008b7-2802-4f44-94cf-c0a589e20163
 
 	measure 'Mean model score' = AVERAGE(Predictions[model_score])
 		formatString: 0.000
+		lineageTag: d3b1b62b-8ae9-4ea7-9d51-7f037a71df0b
 
 	measure 'Threshold scatter score' = IF(MAX(Predictions[oof_p_decline]) >= SELECTEDVALUE(AuditThreshold[Value], 0.7), MAX(Predictions[model_score]))
 		formatString: 0.000
+		lineageTag: eaffceef-592e-4428-8aa9-39ce0dc9aa0c
 
 	measure 'Case year' = MAX(Predictions[time_t])
 		formatString: 0
+		lineageTag: 1b7caf2d-a4af-4bee-ae63-30d7b3dd5c9f
 
 	measure 'Audit case match' = IF(MAX(Predictions[oof_p_decline]) >= SELECTEDVALUE(AuditThreshold[Value], 0.7), 1, 0)
 		formatString: 0
+		lineageTag: 8ae01f58-8505-4c7e-888e-7d72182319f9
 
 	measure 'Audit summary' = (CALCULATE(COUNTROWS(Predictions), Predictions[oof_p_decline] >= SELECTEDVALUE(AuditThreshold[Value], 0.7)) + 0) & " cases at threshold " & FORMAT(SELECTEDVALUE(AuditThreshold[Value], 0.7), "0.00")
+		lineageTag: 8b851c0e-dcd1-43a7-aecc-da22821c9d8b
 
 	measure 'Flagged cases' = CALCULATE(COUNTROWS(Predictions), Predictions[oof_p_decline] >= SELECTEDVALUE(AuditThreshold[Value], 0.7))
 		formatString: 0
+		lineageTag: 11b8baf3-4b1c-4b84-8407-a3470746b3ab
 
 	column nga
 		dataType: string
+		lineageTag: f6b802a3-a795-4a61-a175-7f70d5dd1457
 		summarizeBy: none
 		sourceColumn: nga
 
 	column PolID
 		dataType: string
+		lineageTag: e89e903d-6391-4318-87bc-88d08467adc9
 		summarizeBy: none
 		sourceColumn: PolID
 
 	column polity
 		dataType: string
+		lineageTag: f683799a-c9f2-459b-8033-862fdded6d69
 		summarizeBy: none
 		sourceColumn: polity
 
 	column group_id
 		dataType: string
+		lineageTag: 4517b71d-e0e9-4f52-aa1d-6e6f8091030e
 		summarizeBy: none
 		sourceColumn: group_id
 
 	column time_t
 		dataType: int64
+		lineageTag: 9df079bb-c930-4f4d-b807-987c5b14a5fa
 		summarizeBy: none
 		sourceColumn: time_t
 
 	column next_time
 		dataType: int64
+		lineageTag: 4957522d-53c3-44ef-95c2-9795daf3d5ae
 		summarizeBy: none
 		sourceColumn: next_time
 
 	column Terr
 		dataType: double
+		lineageTag: 07757d8e-2630-4d24-8a34-f83c48fa2ddf
 		summarizeBy: none
 		sourceColumn: Terr
 
 	column next_Terr
 		dataType: double
+		lineageTag: 02d0640d-5a23-4fc8-9641-9c4d0c43faf4
 		summarizeBy: none
 		sourceColumn: next_Terr
 
 	column contraction
 		dataType: int64
+		lineageTag: e2e19e7d-7727-48b3-b830-3b64d9bdc0e2
 		summarizeBy: none
 		sourceColumn: contraction
 
 	column outcome
 		dataType: string
+		lineageTag: b0cd5a03-bfc5-454e-9367-0a93d1415b18
 		summarizeBy: none
 		sourceColumn: outcome
 
 	column Pop
 		dataType: double
+		lineageTag: b4896f8c-58e8-4485-9806-8e0a73c64945
 		summarizeBy: none
 		sourceColumn: Pop
 
 	column Cap
 		dataType: double
+		lineageTag: 37ecc1d9-5af1-43d5-a29a-c5164b841594
 		summarizeBy: none
 		sourceColumn: Cap
 
 	column Hier
 		dataType: double
+		lineageTag: eb46ec85-68d5-42e6-a5df-b03e58c978bd
 		summarizeBy: none
 		sourceColumn: Hier
 
 	column Gov
 		dataType: double
+		lineageTag: 358d5f78-2c9b-4f4b-a592-450fb55b3e42
 		summarizeBy: none
 		sourceColumn: Gov
 
 	column Infra
 		dataType: double
+		lineageTag: 7fb0e4e5-d7b7-40da-9586-3e619b31b155
 		summarizeBy: none
 		sourceColumn: Infra
 
 	column Info
 		dataType: double
+		lineageTag: 17c5df70-6799-4b5a-8fad-16d655891b83
 		summarizeBy: none
 		sourceColumn: Info
 
 	column Money
 		dataType: double
+		lineageTag: eddd192c-be67-469e-8ba7-096ec72eebdf
 		summarizeBy: none
 		sourceColumn: Money
 
 	column Pop_delta
 		dataType: double
+		lineageTag: 51c114d5-9e46-441c-ae22-82269a49c5ad
 		summarizeBy: none
 		sourceColumn: Pop_delta
 
 	column Cap_delta
 		dataType: double
+		lineageTag: 81ed7002-4015-49c4-a364-bc7f36d1a1a8
 		summarizeBy: none
 		sourceColumn: Cap_delta
 
 	column Hier_delta
 		dataType: double
+		lineageTag: bf276d72-6003-4508-a6de-29161f9f4fa2
 		summarizeBy: none
 		sourceColumn: Hier_delta
 
 	column Gov_delta
 		dataType: double
+		lineageTag: c1535ffc-c4e5-4f81-9844-0066ffe7d9aa
 		summarizeBy: none
 		sourceColumn: Gov_delta
 
 	column Infra_delta
 		dataType: double
+		lineageTag: 8872ce0b-5645-40e7-8e89-19a3fcf6434c
 		summarizeBy: none
 		sourceColumn: Infra_delta
 
 	column Info_delta
 		dataType: double
+		lineageTag: cbe99da2-fc5a-41ba-9df5-2f0e891b4a88
 		summarizeBy: none
 		sourceColumn: Info_delta
 
 	column Money_delta
 		dataType: double
+		lineageTag: fbd74a7f-0e36-42ed-97cf-ecf725963aa5
 		summarizeBy: none
 		sourceColumn: Money_delta
 
 	column model_score
 		dataType: double
+		lineageTag: cde0e48e-e6fb-4a63-86fb-a3b0f9192b0f
 		summarizeBy: none
 		sourceColumn: model_score
 
 	column y
 		dataType: int64
+		lineageTag: f062ec29-82d0-452b-b258-2dd90389292c
 		summarizeBy: none
 		sourceColumn: y
 
 	column fp_flag
 		dataType: int64
+		lineageTag: fc8d07fe-fd51-4c04-b9d4-26b7066a92ef
 		summarizeBy: none
 		sourceColumn: fp_flag
 
 	column observation_id
 		dataType: string
+		lineageTag: d22347bf-7c8f-40b1-b268-94fc0743c42a
 		summarizeBy: none
 		sourceColumn: observation_id
 
 	column oof_p_decline
 		dataType: double
+		lineageTag: 9212c2e8-7ffe-4f97-b7fa-e965da2d3958
 		summarizeBy: none
 		sourceColumn: oof_p_decline
 
 	partition Predictions = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(File.Contents(DataRoot & "\predictions.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
-			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    Typed = Table.TransformColumnTypes(Headers, {{"nga", type text}, {"PolID", type text}, {"polity", type text}, {"group_id", type text}, {"time_t", Int64.Type}, {"next_time", Int64.Type}, {"Terr", type number}, {"next_Terr", type number}, {"contraction", Int64.Type}, {"outcome", type text}, {"Pop", type number}, {"Cap", type number}, {"Hier", type number}, {"Gov", type number}, {"Infra", type number}, {"Info", type number}, {"Money", type number}, {"Pop_delta", type number}, {"Cap_delta", type number}, {"Hier_delta", type number}, {"Gov_delta", type number}, {"Infra_delta", type number}, {"Info_delta", type number}, {"Money_delta", type number}, {"model_score", type number}, {"y", Int64.Type}, {"fp_flag", Int64.Type}}),
-			    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text),
-			    CasesRaw = Csv.Document(File.Contents(DataRoot & "\fp_cases.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
-			    CasesHdr = Table.PromoteHeaders(CasesRaw, [PromoteAllScalars=true]),
-			    CasesSel = Table.TransformColumnTypes(Table.SelectColumns(CasesHdr, {"polity", "century", "oof_p_decline"}), {{"polity", type text}, {"century", Int64.Type}, {"oof_p_decline", type number}}),
-			    CasesKeyed = Table.AddColumn(CasesSel, "case_key", each [polity] & "|" & Text.From([century]), type text),
-			    Joined = Table.NestedJoin(Keyed, {"observation_id"}, CasesKeyed, {"case_key"}, "case", JoinKind.LeftOuter),
-			    Expanded = Table.ExpandTableColumn(Joined, "case", {"oof_p_decline"}, {"oof_p_decline"})
-			in
-			    Expanded
+				let
+				    Source = Csv.Document(File.Contents(DataRoot & "\predictions.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"nga", type text}, {"PolID", type text}, {"polity", type text}, {"group_id", type text}, {"time_t", Int64.Type}, {"next_time", Int64.Type}, {"Terr", type number}, {"next_Terr", type number}, {"contraction", Int64.Type}, {"outcome", type text}, {"Pop", type number}, {"Cap", type number}, {"Hier", type number}, {"Gov", type number}, {"Infra", type number}, {"Info", type number}, {"Money", type number}, {"Pop_delta", type number}, {"Cap_delta", type number}, {"Hier_delta", type number}, {"Gov_delta", type number}, {"Infra_delta", type number}, {"Info_delta", type number}, {"Money_delta", type number}, {"model_score", type number}, {"y", Int64.Type}, {"fp_flag", Int64.Type}}),
+				    Keyed = Table.AddColumn(Typed, "observation_id", each [polity] & "|" & Text.From([time_t]), type text),
+				    CasesRaw = Csv.Document(File.Contents(DataRoot & "\fp_cases.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    CasesHdr = Table.PromoteHeaders(CasesRaw, [PromoteAllScalars=true]),
+				    CasesSel = Table.TransformColumnTypes(Table.SelectColumns(CasesHdr, {"polity", "century", "oof_p_decline"}), {{"polity", type text}, {"century", Int64.Type}, {"oof_p_decline", type number}}),
+				    CasesKeyed = Table.AddColumn(CasesSel, "case_key", each [polity] & "|" & Text.From([century]), type text),
+				    Joined = Table.NestedJoin(Keyed, {"observation_id"}, CasesKeyed, {"case_key"}, "case", JoinKind.LeftOuter),
+				    Expanded = Table.ExpandTableColumn(Joined, "case", {"oof_p_decline"}, {"oof_p_decline"})
+				in
+				    Expanded
+
